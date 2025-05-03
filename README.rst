@@ -79,3 +79,6 @@ Note that:
 - Unlike the default bash that comes with ``devenv``, ``devenv-zsh`` loads your
   global and $HOME configurations of zsh. This is done before it runs the
   ``extraInit``.
+
+- All of the ``enterShell`` logic must still be written in Bash, this project
+  only executes zsh after ``enterShell`` completes.
