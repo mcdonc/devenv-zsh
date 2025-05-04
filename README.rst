@@ -85,4 +85,4 @@ Note that:
   only executes zsh after ``enterShell`` completes.
 
 - At the moment ``devenv up`` / ``devenv processes up`` must be run from within
-  an existing devenv shell if you use this.
+  an existing devenv shell if you use them.
