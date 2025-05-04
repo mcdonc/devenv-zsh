@@ -98,5 +98,5 @@ Note that:
 
 - If the environment variable ``DEVENV_ZSH_DISABLE`` is set to a nonempty
   string that is not "0" before you invoke ``devenv shell`` or you cause it to
-  be set anywhere within your project's ``enterShell``, ZSH will not be exec'ed
-  even if ``zsh.enable`` is true.
+  be exported anywhere within your project's ``enterShell``, ZSH will not be
+  exec'ed even if ``zsh.enable`` is true.
