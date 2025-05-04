@@ -5,6 +5,9 @@ Use ZSH as the Default Devenv Shell
 ``devenv shell`` from ``bash`` to ``zsh``.  It will use your global ZSH
 configuration.
 
+Usage
+-----
+
 To use ``devenv-zsh`` in your devenv config, first import into into your devenv
 config, then set the ``zsh.enable`` flag to ``true`` within your
 ``devenv.nix``.
@@ -12,7 +15,7 @@ config, then set the ``zsh.enable`` flag to ``true`` within your
 Here is an example devenv configuration showing the use of the ``enable`` and
 ``extraInit`` settings.
 
-Add an input into ``devenv.yaml``:
+Add an input into ``devenv.yaml``::
 
   devenv-zsh:
     url: github:mcdonc/devenv-zsh
@@ -48,6 +51,9 @@ following output::
 
 And you will be at a ZSH prompt.
 
+Settings
+--------
+
 If ``zsh.enable`` is ``true``, the following extra settings
 can be configured:
 
@@ -61,7 +67,8 @@ Commands issued when ZSH starts under devenv.
 
 The zsh package to use (default is ``pkgs.zsh``).
 
-Note that:
+Notes
+-----
 
 - ``devenv-zsh`` makes no attempt to modify your prompt to let you know that
   you're inside a devenv, so you'll likely have to use ``extraInit`` to
