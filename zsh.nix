@@ -75,13 +75,19 @@ in
   };
   config =
     let
-      normal-zsh = ''exec ${cfg.package}/bin/zsh -i'';
-      shimmed-zsh = ''exec ${zsh-shim}/zsh -i'';
+      normal-zsh = ''${cfg.package}/bin/zsh -i'';
+      shimmed-zsh = ''${zsh-shim}/zsh -i'';
       zsh-command = if stringToBool(cfg.extraInit) then shimmed-zsh else
         normal-zsh;
     in
     lib.mkIf cfg.enable {
-      enterShell = lib.mkAfter zsh-command;
+      enterShell = lib.mkAfter ''
+        # XXX hack: don't break "devenv up"
+        if [ -z "$DEVENV_ZSH_INITIAL_SHLVL" ]; then
+          export DEVENV_ZSH_INITIAL_SHLVL="$SHLVL"
+          exec ${zsh-command}
+        fi
+      '';
     };
 
 }
