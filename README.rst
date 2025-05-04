@@ -91,6 +91,11 @@ Notes
   And I've added ``my_prompt_devenv`` to my
   ``POWERLEVEL9K_LEFT_PROMPT_ELEMENTS`` array in the same file.
 
+  It looks like this when I'm in a devenv shell:
+
+  .. image:: http://bouncer.repoze.org/devenvzsh.png
+     :alt: Prompt changes
+
   It is supposedly possible to do this from outside the .p10k.zsh configuration
   file (and thus within ``extraInit``) but I was unsuccessful when I tried.
 
