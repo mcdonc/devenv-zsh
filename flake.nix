@@ -4,11 +4,7 @@
   inputs = {};
 
   outputs = { self }:
-    let
-      plugin = (import ./default.nix);
-    in
     {
-      plugin = plugin;
-      default = plugin;
+      plugin = (import ./default.nix);
     };
 }

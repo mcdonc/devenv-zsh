@@ -5,29 +5,25 @@ Use ZSH as the Default Devenv Shell
 ``devenv shell`` from ``bash`` to ``zsh``.  It will use your global ZSH
 configuration.
 
-To use ``devenv-zsh`` in your devenv config, first import its ``default.nix``
-into your devenv config, then set the ``zsh.enable`` flag to ``true`` within
-your ``devenv.nix``.  If ``zsh.enable`` is ``true``, the following extra
-settings can be configured:
-
-``zsh.extraInit``
-+++++++++++++++++
-
-Commands issued when ZSH starts under devenv.
-
-``zsh.package``
-+++++++++++++++
-
-The zsh package to use (default is ``pkgs.zsh``).
+To use ``devenv-zsh`` in your devenv config, first import into into your devenv
+config, then set the ``zsh.enable`` flag to ``true`` within your
+``devenv.nix``.
 
 Here is an example devenv configuration showing the use of the ``enable`` and
-``extraInit`` settings:
+``extraInit`` settings.
+
+Add an input into ``devenv.yaml``:
+
+  devenv-zsh:
+    url: github:mcdonc/devenv-zsh
+
+Then in ``devenv.nix``, enable and configure the plugin:
 
 .. code-block:: nix
 
-  { pkgs, lib, config, inputs, ... }:
+  { pkgs, lib, config, inputs, devenv-zsh, ... }:
   {
-    imports = [ ./path/to/checkout/of/devenv-nix ];
+    imports = [ devenv-zsh.plugin ];
     zsh.enable = true;
     zsh.extraInit = ''
      echo "hello from zsh!"
@@ -51,6 +47,19 @@ following output::
   hello from zsh!
 
 And you will be at a ZSH prompt.
+
+If ``zsh.enable`` is ``true``, the following extra settings
+can be configured:
+
+``zsh.extraInit``
++++++++++++++++++
+
+Commands issued when ZSH starts under devenv.
+
+``zsh.package``
++++++++++++++++
+
+The zsh package to use (default is ``pkgs.zsh``).
 
 Note that:
 
@@ -86,3 +95,7 @@ Note that:
 
 - At the moment ``devenv up`` / ``devenv processes up`` must be run from within
   an existing devenv shell if you use them.
+
+- If the environment variable ``DEVENV_ZSH_DISABLE`` is set to a nonempty
+  string before you invoke ``devenv shell`` or you cause it to be set anywhere
+  within your project's ``enterShell``, ZSH will not be exec'ed.

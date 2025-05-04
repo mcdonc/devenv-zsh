@@ -83,8 +83,8 @@ in
     lib.mkIf cfg.enable {
       enterShell = lib.mkAfter ''
         # XXX hack: don't break "devenv up"
-        if [ -z "$DEVENV_ZSH_INITIAL_SHLVL" ]; then
-          export DEVENV_ZSH_INITIAL_SHLVL="$SHLVL"
+        if [ -z "$DEVENV_ZSH_EXECED" ] && [ -z "$DEVENV_ZSH_DISABLE" ]; then
+          export DEVENV_ZSH_EXECED="$SHLVL"
           exec ${zsh-command}
         fi
       '';
