@@ -27,7 +27,7 @@ Here is an example devenv configuration showing the use of the ``enable`` and
 
   { pkgs, lib, config, inputs, ... }:
   {
-    imports = [ ./zsh.nix ];
+    imports = [ ./path/to/checkout/of/devenv-nix ];
     zsh.enable = true;
     zsh.extraInit = ''
      echo "hello from zsh!"
