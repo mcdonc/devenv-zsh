@@ -5,10 +5,10 @@ Use ZSH as the Default Devenv Shell
 ``devenv shell`` from ``bash`` to ``zsh``.  It will use your global ZSH
 configuration.
 
-To use ``devenv-zsh`` in your devenv config, first import ``zsh.nix`` into your
-devenv config, then set the ``zsh.enable`` flag to ``true`` within your
-``devenv.nix``.  If ``zsh.enable`` is ``true``, the following extra settings
-can be configured:
+To use ``devenv-zsh`` in your devenv config, first import its ``default.nix``
+into your devenv config, then set the ``zsh.enable`` flag to ``true`` within
+your ``devenv.nix``.  If ``zsh.enable`` is ``true``, the following extra
+settings can be configured:
 
 ``zsh.extraInit``
 +++++++++++++++++
