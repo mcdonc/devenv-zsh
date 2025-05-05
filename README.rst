@@ -106,15 +106,27 @@ Notes
 - All of your ``enterShell`` logic must still be written in Bash, this project
   only executes zsh after ``enterShell`` completes.
 
+- If the environment variable ``DEVENV_ZSH_DISABLE`` is set to a nonempty
+  string that is not "0" before you invoke ``devenv shell`` or you cause it to
+  be exported anywhere within your project's ``enterShell``, ZSH will not be
+  exec'ed even if ``zsh.enable`` is true.
+
+- If there is an error in your devenv's ``enterShell``, ZSH will not be
+  launched; you will be using Bash until you fix the error.
+
+- This project makes use of Roman Perepelitsa's ``zshi``
+  (https://github.com/romkatv/zshi).
+  
+Problems
+--------
+
 - At the moment ``devenv up`` / ``devenv processes up`` must be run from within
   an existing devenv shell or you must set ``DEVENV_ZSH_DISABLE`` before
   invoking either outside of a devenv shell, e.g.
   ``DEVENV_ZSH_DISABLE=1 devenv up``.
 
-- If the environment variable ``DEVENV_ZSH_DISABLE`` is set to a nonempty
-  string that is not "0" before you invoke ``devenv shell`` or you cause it to
-  be exported anywhere within your project's ``enterShell``, ZSH will not be
-  exec'ed even if ``zsh.enable`` is true.
+- If you invoke ``devenv shell`` from within an existing Devenv shell, the
+  subshell will be Bash.
 
 - If you launch Bash from within this plugin via ``bash``, you will likely be
   executing the non-interactive build of Bash and you will see warnings such as
@@ -122,11 +134,3 @@ Notes
   messed up, and your movement keys won't work.  To avoid this, add
   ``pkgs.bashInteractive`` to your devenv ``packages``.
 
-- If there is an error in your devenv's ``enterShell``, ZSH will not be
-  launched; you will be using Bash until you fix the error.
-
-- If you invoke ``devenv shell`` from within an existing Devenv shell, the
-  subshell will be Bash.
-
-- This project makes use of Roman Perepelitsa's ``zshi``
-  (https://github.com/romkatv/zshi).
