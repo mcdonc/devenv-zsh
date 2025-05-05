@@ -61,7 +61,7 @@ can be configured:
 ``zsh.extraInit``
 +++++++++++++++++
 
-Commands issued when ZSH starts under devenv.
+Commands issued under ZSH when devenv starts it.
 
 ``zsh.package``
 +++++++++++++++
