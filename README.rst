@@ -125,3 +125,5 @@ Notes
 - If there is an error in your devenv's ``enterShell``, ZSH will not be
   launched; you will be using Bash until you fix the error.
 
+- This project makes use of Roman Perepelitsa's ``zshi``
+  (https://github.com/romkatv/zshi).
