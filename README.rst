@@ -134,3 +134,12 @@ Problems
   messed up, and your movement keys won't work.  To avoid this, add
   ``pkgs.bashInteractive`` to your devenv ``packages``.
 
+- If you use Devenv containers (e.g. ``devenv container run shell``), you'll
+  likely want to set:
+
+  .. code-block:: nix
+
+    zsh.enable = !(config.container.isBuilding);
+
+  To avoid the container not being able to exec ``zsh`` when its interactive
+  shell starts.  Alternately, add ``pkgs.zsh`` to your devenv.nix ``packages``.

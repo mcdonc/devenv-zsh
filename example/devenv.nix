@@ -11,7 +11,7 @@ in
   enterShell = ''
     echo "hello from bash at shell level $SHLVL!"
   '';
-  zsh.enable = true;
+  zsh.enable = !(config.container.isBuilding);
   zsh.extraInit = ''
     echo "hello from zsh at shell level $SHLVL!"
   '';
