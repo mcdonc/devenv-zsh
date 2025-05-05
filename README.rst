@@ -121,3 +121,7 @@ Notes
   ``bash: shopt: progcomp: invalid shell option name``, your prompt will be
   messed up, and your movement keys won't work.  To avoid this, add
   ``pkgs.bashInteractive`` to your devenv ``packages``.
+
+- If there is an error in your devenv's ``enterShell``, ZSH will not be
+  launched; you will be using Bash until you fix the error.
+
