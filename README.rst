@@ -128,7 +128,7 @@ Problems
 - If you invoke ``devenv shell`` from within an existing Devenv shell, the
   subshell will be Bash.
 
-- If you launch Bash from within this plugin via ``bash``, you will likely be
+- If you launch Bash from within ZSH via ``bash``, you will likely be
   executing the non-interactive build of Bash and you will see warnings such as
   ``bash: shopt: progcomp: invalid shell option name``, your prompt will be
   messed up, and your movement keys won't work.  To avoid this, add
