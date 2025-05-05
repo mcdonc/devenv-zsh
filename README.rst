@@ -3,8 +3,8 @@ Use ZSH as the Default Devenv Shell
 
 ``devenv-zsh`` changes the interactive shell that launches when you type
 ``devenv shell`` from ``bash`` to ``zsh``.  It will use your global ZSH
-configuration.  It is hacky but useful until Devenv grows support for alternate
-interactive shells.
+configuration.  It is hacky but useful until Devenv grows native support for
+alternate interactive shells.
 
 Usage
 -----
