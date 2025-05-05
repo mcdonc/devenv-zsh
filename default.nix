@@ -24,9 +24,7 @@ let
       platforms = platforms.all;
     };
   };
-  extra-init = pkgs.writeText "devenv-zsh-extra-init" ''
-   ${cfg.extraInit}
-  '';
+  extra-init = pkgs.writeText "devenv-zsh-extra-init" "${cfg.extraInit}";
 in
 {
   options.zsh = {
