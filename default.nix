@@ -34,7 +34,8 @@
           mkdir -p $out/bin
           cp zshi $out/bin/zshi
           substituteInPlace $out/bin/zshi \
-            --replace '/usr/bin/env zsh' ${cfg.package}/bin/zsh
+            --replace '/usr/bin/env zsh' ${cfg.package}/bin/zsh \
+            --replace 'ZDOTDIR=$tmp zsh' 'ZDOTDIR=$tmp ${cfg.package}/bin/zsh'
         '';
         meta = with lib; {
           description = "ZSH -i but initial command exec'd after std zsh files";
