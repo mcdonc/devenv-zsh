@@ -52,7 +52,7 @@
     in
       lib.mkIf cfg.enable {
         enterShell = lib.mkAfter ''
-        if [ "$DEVENV_ZSH_DISABLE " == "0" ] || \
+        if [ "$DEVENV_ZSH_DISABLE" == "0" ] || \
                 [ -z "$DEVENV_ZSH_DISABLE" ]; then
           # not disabled
           if [ -z "''${DEVENV_CMDLINE+x}" ]; then

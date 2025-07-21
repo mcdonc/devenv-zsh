@@ -117,8 +117,8 @@ Notes
 - This project makes use of Roman Perepelitsa's ``zshi``
   (https://github.com/romkatv/zshi).
   
-Problems
---------
+Problems (all fixed under devenv 1.7+)
+--------------------------------------
 
 - At the moment ``devenv up`` / ``devenv processes up`` must be run from within
   an existing devenv shell or you must set ``DEVENV_ZSH_DISABLE`` before
