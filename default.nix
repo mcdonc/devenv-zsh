@@ -62,7 +62,7 @@
               export _DEVENV_ZSH_EXECED="$SHLVL"
               exec ${zsh-command}
             fi
-          elif [[ "$DEVENV_CMDLINE" == "shell" ]]; then
+          elif [[ " $DEVENV_CMDLINE " == *" shell "* ]]; then
             # DEVENV_CMDLINE is set (devenv 1.7+), and == "shell"
             exec ${zsh-command}
           fi
