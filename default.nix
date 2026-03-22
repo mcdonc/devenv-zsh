@@ -63,8 +63,12 @@
               exec ${zsh-command}
             fi
           elif [[ " $DEVENV_CMDLINE " == *" shell "* ]]; then
-            # DEVENV_CMDLINE is set (devenv 1.7+), and == "shell"
-            exec ${zsh-command}
+            # DEVENV_CMDLINE is set (devenv 1.7+/2.x) and contains "shell".
+            # Use PROMPT_COMMAND so that zsh is exec'd only when bash becomes
+            # interactive (i.e. not for "devenv shell -- command").  This is
+            # also required for devenv 2.x where enterShell runs inside a
+            # script that must complete before the interactive shell starts.
+            export PROMPT_COMMAND="unset PROMPT_COMMAND; exec ${zsh-command}"
           fi
         fi
       '';
