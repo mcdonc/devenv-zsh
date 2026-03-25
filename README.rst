@@ -114,6 +114,10 @@ Notes
 - If there is an error in your devenv's ``enterShell``, ZSH will not be
   launched; you will be using Bash until you fix the error.
 
+- When using devenv's direnv integration, ``extraInit`` will be ignored. Direnv
+  will load any environment variables set in ``enterShell`` into your current
+  shell, but does not provide any mechanism to run ``extraInit``.
+
 - This project makes use of Roman Perepelitsa's ``zshi``
   (https://github.com/romkatv/zshi).
   
