@@ -68,7 +68,7 @@
             # interactive (i.e. not for "devenv shell -- command").  This is
             # also required for devenv 2.x where enterShell runs inside a
             # script that must complete before the interactive shell starts.
-            export PROMPT_COMMAND="unset PROMPT_COMMAND; exec ${zsh-command}"
+            export PROMPT_COMMAND='unset PROMPT_COMMAND; exec ${zsh-command}'
           fi
         fi
       '';
